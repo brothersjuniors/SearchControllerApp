@@ -12,7 +12,7 @@ class BarcodeGenerator: UIViewController {
         do {
             let writer = ZXMultiFormatWriter()
             let hints = ZXEncodeHints() as ZXEncodeHints
-            let result = try writer.encode(string, format:  kBarcodeFormatEan13, width: 100, height: 100, hints: hints)
+            let result = try writer.encode(string, format:  kBarcodeFormatEan13, width: 280, height: 50, hints: hints)
             if let imageRef = ZXImage.init(matrix: result) {
                 if let image = imageRef.cgimage {
                     return UIImage.init(cgImage: image)

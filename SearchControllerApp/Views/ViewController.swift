@@ -7,15 +7,14 @@
 import UIKit
 import RealmSwift
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var id = ""
-    var box = Int()
+    private var janString: String?
+    private var box = Int()
     var data: Results<Products>!
     let realm = try! Realm()
     var lists = List<Products>()
-    var searching = false
-    var searchedItem = [Products]()
+    private  var searching = false
+    private var searchedItem = [Products]()
     let searchController = UISearchController(searchResultsController: nil)
-    var editIndexPath: IndexPath?
     @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +25,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         table.register(UINib(nibName:"CustomsTableViewCell",bundle: nil), forCellReuseIdentifier: "cell")
         data = realm.objects(Products.self).sorted(byKeyPath: "maker",ascending: true)
         searchController.searchResultsUpdater = self
-        configureRefreshControl()
-        configulation()
+        DispatchQueue.main.async { [self] in
+            _ =  BarcodeGenerator.generateBarCode(from: "\(janString ?? "4902011713725")")!
+            configureRefreshControl()
+            configulation()
+        }
     }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        return 100
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
@@ -42,47 +43,63 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomsTableViewCell
-        box = indexPath.row
-        let item = data[box]
+        var item: Products
         if searching {
+            item = searchedItem[indexPath.row]
+            janString = searchedItem[indexPath.row].janID
             cell.accessoryType = .none
-            cell.makerLabel.text = searchedItem[indexPath.row].maker
-            cell.product.text = searchedItem[indexPath.row].name
-            cell.capacity.text = "容量:　\(searchedItem[indexPath.row].capa)"
-            cell.jan.text = "JAN: \(searchedItem[indexPath.row].janID)"
-        
-        } else {
+         } else {
+            item = data[indexPath.row]
+            janString = item.janID
             cell.accessoryType = .detailButton
-            
-            cell.makerLabel.text = item.maker
-            cell.product.text = item.name
-            cell.capacity.text = "容量:　\(item.capa)"
-            cell.jan.text = "JAN: \(item.janID)"
         }
+        let image =  BarcodeGenerator.generateBarCode(from: "\(janString ?? "4902011713725")")!
+        cell.makerLabel.text = item.maker
+        cell.product.text = item.name
+        cell.capacity.text = item.capa
+        cell.jan.text = item.janID
+        cell.janImage?.image = image
         return cell
     }
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         _ = CommitView()
         box = indexPath.row
         CommitView.box = box
-        
         performSegue(withIdentifier: "segue", sender: indexPath)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        searchController.dismiss(animated: false)
+        //  tableView.deselectRow(at: indexPath, animated: true)
+        // searchController.dismiss(animated: false)
         guard let vc = storyboard?.instantiateViewController(identifier: "detail") as? DetailViewController else { return }
-      
-            let item = data[indexPath.row]
+        if let indexPath = table.indexPathForSelectedRow {
+            var item: Products
+            if searching {
+                item  = searchedItem[indexPath.row]
+            } else {
+                item = data[indexPath.row]
+            }
             vc.item = item
-            vc.navigationItem.largeTitleDisplayMode = .never
-            vc.navigationItem.title = item.name
-//        searchController.dismiss(animated: false)
-//           dismiss(animated: true)
-            navigationController?.pushViewController(vc, animated: true)
-            table.reloadData()
         }
- //くるくる回ってリロード処理
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+        table.reloadData()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show" {
+            if let indexPath = table.indexPathForSelectedRow {
+                let filtered: Products
+                if searching {
+                    filtered  = searchedItem[indexPath.row]
+                } else {
+                    filtered = data[indexPath.row]
+                }
+                let detailVC = segue.destination as! DsViewController
+                detailVC.filtered = filtered
+            }
+            
+        }
+    }
+    //くるくる回ってリロード処理
     func configureRefreshControl () {
         table.refreshControl = UIRefreshControl()
         table.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
@@ -115,7 +132,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
 }
-
 extension ViewController: UISearchResultsUpdating,UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
@@ -136,9 +152,7 @@ extension ViewController: UISearchResultsUpdating,UISearchBarDelegate{
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
-        
         searchedItem.removeAll()
         table.reloadData()
-        
     }
-    }
+}

@@ -16,7 +16,9 @@ class ScanViewController: UIViewController, DataScannerViewControllerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        startButton(self)
+        showAleart()
+        
+        
     }
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         switch item {
@@ -24,35 +26,53 @@ class ScanViewController: UIViewController, DataScannerViewControllerDelegate {
             print("text: \(text.transcript)")
             UIPasteboard.general.string = text.transcript
             texts = text.transcript
+            
             changeView(view:texts!)
         case .barcode(let code):
             guard let urlString = code.payloadStringValue else { return }
             guard let url = URL(string: urlString) else { return }
             UIApplication.shared.open(url)
+            texts = urlString
+            
+            changeView(view:texts!)
+            
         default:
             print("想定外のエラー")
         }
     }
     func changeView(view: String){
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "nextViewController") as! DataShowView
-        self.dismiss(animated: true)
-        self.present(nextViewController, animated: true, completion: nil)
+//        pushViewController(viewController, animated: true)
         
+        self.dismiss(animated: true)
+        
+        self.present(nextViewController, animated: true, completion: nil)
+        // nextViewController.modalPresentationStyle = .fullScreen
         nextViewController.str = texts!
         
     }
-    var qualityLevel: DataScannerViewController.QualityLevel = .balanced
+    // var qualityLevel: DataScannerViewController.QualityLevel = .accurate
     
-    func startButton(_ sender: Any) {
+    func startButton() {
         guard scannerAvailable == true else { return }
         //✳️DataScannerViewControllerをインスタンス化
-        let dataScanner = DataScannerViewController(recognizedDataTypes: [.text(),.barcode(symbologies:[ .ean13])],qualityLevel: qualityLevel,isHighFrameRateTrackingEnabled: true, isPinchToZoomEnabled: true, isGuidanceEnabled: true,isHighlightingEnabled: true)
+        let dataScanner = DataScannerViewController(recognizedDataTypes: [.text(),.barcode(symbologies:[ .ean13])],qualityLevel: .accurate,isHighFrameRateTrackingEnabled: true, isPinchToZoomEnabled: true, isGuidanceEnabled: true,isHighlightingEnabled: true)
         dataScanner.delegate = self
         present(dataScanner,animated: true) {
             try? dataScanner.startScanning()
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        startButton((Any).self)
-        }
+        showAleart()
+        startButton()
     }
+    
+    
+    func showAleart(){
+        let alert = UIAlertController(title: "カメラを起動します", message: "This is an alert.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            self.startButton()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+}

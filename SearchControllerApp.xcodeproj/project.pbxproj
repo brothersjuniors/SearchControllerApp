@@ -16,6 +16,7 @@
 		AD1A00FB29CED4B50052FC19 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1A00FA29CED4B50052FC19 /* Model.swift */; };
 		AD34BD9D29D1F05100C7289B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD34BD9C29D1F05100C7289B /* FirstViewController.swift */; };
 		AD34BD9F29D1F47200C7289B /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD34BD9E29D1F47200C7289B /* AddViewController.swift */; };
+		AD460C3929F6EC4C00E4D7C9 /* DsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD460C3829F6EC4C00E4D7C9 /* DsViewController.swift */; };
 		AD78BFE929CF7B280033ABE2 /* CustomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD78BFE729CF7B280033ABE2 /* CustomsTableViewCell.swift */; };
 		AD78BFEA29CF7B280033ABE2 /* CustomsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD78BFE829CF7B280033ABE2 /* CustomsTableViewCell.xib */; };
 		AD99526E29DF5CAC0047DF10 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD99526D29DF5CAC0047DF10 /* Helper.swift */; };
@@ -26,7 +27,6 @@
 		AD99527929DF5E5C0047DF10 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AD99527829DF5E5C0047DF10 /* Realm */; };
 		AD99527B29DF5E5C0047DF10 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD99527A29DF5E5C0047DF10 /* RealmSwift */; };
 		ADA6A69029D00AC000D9BAC1 /* CommitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA6A68E29D00AC000D9BAC1 /* CommitView.swift */; };
-		ADA6A69429D00D2400D9BAC1 /* Commit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA6A69329D00D2400D9BAC1 /* Commit.storyboard */; };
 		B0F64E82F1E3D744B38E653B /* Pods_SearchControllerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97907D5762B513103C203C9E /* Pods_SearchControllerApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +44,7 @@
 		AD1A00FA29CED4B50052FC19 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AD34BD9C29D1F05100C7289B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		AD34BD9E29D1F47200C7289B /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		AD460C3829F6EC4C00E4D7C9 /* DsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DsViewController.swift; sourceTree = "<group>"; };
 		AD78BFE729CF7B280033ABE2 /* CustomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomsTableViewCell.swift; sourceTree = "<group>"; };
 		AD78BFE829CF7B280033ABE2 /* CustomsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomsTableViewCell.xib; sourceTree = "<group>"; };
 		AD99526D29DF5CAC0047DF10 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		AD99527329DF5D2A0047DF10 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		AD99527529DF5D520047DF10 /* DataShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShowView.swift; sourceTree = "<group>"; };
 		ADA6A68E29D00AC000D9BAC1 /* CommitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitView.swift; sourceTree = "<group>"; };
-		ADA6A69329D00D2400D9BAC1 /* Commit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Commit.storyboard; sourceTree = "<group>"; };
 		C15781E502F6BB2C01F83C67 /* Pods-SearchControllerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchControllerApp.release.xcconfig"; path = "Target Support Files/Pods-SearchControllerApp/Pods-SearchControllerApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,6 @@
 				AD1A00E629CED1860052FC19 /* Main.storyboard */,
 				AD78BFE829CF7B280033ABE2 /* CustomsTableViewCell.xib */,
 				AD1A00EB29CED1870052FC19 /* LaunchScreen.storyboard */,
-				ADA6A69329D00D2400D9BAC1 /* Commit.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -142,6 +141,7 @@
 				AD99527329DF5D2A0047DF10 /* ScanViewController.swift */,
 				AD99527529DF5D520047DF10 /* DataShowView.swift */,
 				AD4A46AD29D094A40075FAB6 /* storyboards */,
+				AD460C3829F6EC4C00E4D7C9 /* DsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,7 +152,6 @@
 				86E65E41CBCAA704F05780E6 /* Pods-SearchControllerApp.debug.xcconfig */,
 				C15781E502F6BB2C01F83C67 /* Pods-SearchControllerApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,7 +206,7 @@
 			);
 			mainGroup = AD1A00D429CED1860052FC19;
 			packageReferences = (
-				AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift.git" */,
+				AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = AD1A00DE29CED1860052FC19 /* Products */;
 			projectDirPath = "";
@@ -224,7 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD1A00ED29CED1870052FC19 /* LaunchScreen.storyboard in Resources */,
-				ADA6A69429D00D2400D9BAC1 /* Commit.storyboard in Resources */,
 				AD1A00EA29CED1870052FC19 /* Assets.xcassets in Resources */,
 				AD1A00E829CED1860052FC19 /* Main.storyboard in Resources */,
 				AD78BFEA29CF7B280033ABE2 /* CustomsTableViewCell.xib in Resources */,
@@ -281,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD78BFE929CF7B280033ABE2 /* CustomsTableViewCell.swift in Sources */,
+				AD460C3929F6EC4C00E4D7C9 /* DsViewController.swift in Sources */,
 				AD1A00FB29CED4B50052FC19 /* Model.swift in Sources */,
 				AD34BD9F29D1F47200C7289B /* AddViewController.swift in Sources */,
 				AD1A00E529CED1860052FC19 /* ViewController.swift in Sources */,
@@ -514,7 +513,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
+		AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -527,12 +526,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		AD99527829DF5E5C0047DF10 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
 		AD99527A29DF5E5C0047DF10 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = AD99527729DF5E5C0047DF10 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

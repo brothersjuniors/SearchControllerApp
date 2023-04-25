@@ -1,11 +1,4 @@
-//
-//  DetailViewController.swift
-//  SearchControllerApp
-//
-//  Created by 近江伸一 on 2023/04/07.
-//
 
-//
 //  DetailViewController.swift
 //  SearchControllerApp
 //
@@ -15,11 +8,12 @@
 import UIKit
 import RealmSwift
 class DetailViewController: UIViewController {
-  
+   // var item: Products!
     static var box = Int()
     let realm = try! Realm()
+    private var searchedItem = [Products]()
     var data: Results<Products>!
-    public var item: Products?
+public var item: Products?
     @IBOutlet weak var makerLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var capaLabel: UILabel!
@@ -28,8 +22,11 @@ class DetailViewController: UIViewController {
     var janString: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+            
+         makerLabel.text = item?.maker
         janString = item?.janID
-        makerLabel.text = item?.maker
+        //makerLabel.text = item?.maker
         nameLabel.text = item?.name
         capaLabel.text = item?.capa
         janLabel.text = item?.janID
@@ -44,4 +41,5 @@ class DetailViewController: UIViewController {
     
     
 }
+
 

@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 class AddViewController: UIViewController {
+    var str = ""
     var data: Results<Products>!
     let realm = try! Realm()
     @IBOutlet weak var makerTextField: UITextField!
@@ -19,6 +20,14 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         data = realm.objects(Products.self).sorted(byKeyPath: "maker",ascending: true)
         idTextField.keyboardType = .numberPad
+        if str != "" {
+           return
+        } else {
+            idTextField.text = str
+            print(str)
+            
+           
+        }
     }
     @IBAction func saveButton(_ sender: Any) {
         guard let saveMaker = makerTextField.text else { return }
@@ -26,9 +35,7 @@ class AddViewController: UIViewController {
         guard let saveCapa = capaTextField.text else { return }
         guard let saveJan = idTextField.text else { return }
         _ = idTextField.text!
-//        if id.count < 12 || id.count > 13 {
-//            guard let saveJan = idTextField.text else { return }
-//        }
+
         Helper().saveDate(maker: saveMaker, name: saveName, capa: saveCapa, janId: saveJan, id: UUID().uuidString)
         makerTextField.text = ""
         nameTextField.text = ""

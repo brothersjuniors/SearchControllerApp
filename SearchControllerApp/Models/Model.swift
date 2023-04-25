@@ -13,18 +13,7 @@
 
 import Foundation
 import RealmSwift
-//class ProducsItem {
-//    var maccccccckerName: String
-//    var capacity: String
-//    var jan: String
-//    var productName: String
-//    init(makerName: String, capacity: String, jan: String, productName: String) {
-//        self.makerName = makerName
-//        self.capacity = capacity
-//        self.jan = jan
-//        self.productName = productName
-//    }
-//}
+
 class Products: Object {
     @objc dynamic var maker = ""
     @objc dynamic var name = ""
@@ -38,3 +27,15 @@ class ItemList: Object{
     let list = List<Products>()
 }
 
+//class ProducsItem {
+//    var maccccccckerName: String
+//    var capacity: String
+//    var jan: String
+//    var productName: String
+//    init(makerName: String, capacity: String, jan: String, productName: String) {
+//        self.makerName = makerName
+//        self.capacity = capacity
+//        self.jan = jan
+//        self.productName = productName
+//    }
+//}
