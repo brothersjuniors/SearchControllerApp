@@ -10,19 +10,16 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print(Realm.Configuration.defaultConfiguration.fileURL as Any)
-              
-    
-        let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+      let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         let realm = try! Realm(configuration: config)
         do {
             let realm = try Realm()
         } catch {
-            print("Error initialising new realm, \(error)")
+           // print("Error initialising new realm, \(error)")
         }
         // Get on-disk location of the default Realm
        
-        print("Realm is located at:", realm.configuration.fileURL!)
+       // print("Realm is located at:", realm.configuration.fileURL!)
         
         return true
     }

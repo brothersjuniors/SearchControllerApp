@@ -7,12 +7,14 @@
 import UIKit
 import RealmSwift
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+   
     private var janString: String?
     private var box = Int()
     var data: Results<Products>!
     let realm = try! Realm()
     var lists = List<Products>()
-    private  var searching = false
+    private var searching = false
     private var searchedItem = [Products]()
     let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var table: UITableView!
@@ -29,10 +31,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             _ =  BarcodeGenerator.generateBarCode(from: "\(janString ?? "4902011713725")")!
             configureRefreshControl()
             configulation()
+          //  idTextField.text = DataShow().str
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 60
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
@@ -68,8 +71,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "segue", sender: indexPath)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //  tableView.deselectRow(at: indexPath, animated: true)
-        // searchController.dismiss(animated: false)
         guard let vc = storyboard?.instantiateViewController(identifier: "detail") as? DetailViewController else { return }
         if let indexPath = table.indexPathForSelectedRow {
             var item: Products
@@ -100,7 +101,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     //くるくる回ってリロード処理
-    func configureRefreshControl () {
+   private func configureRefreshControl () {
         table.refreshControl = UIRefreshControl()
         table.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
@@ -131,6 +132,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             tableView.endUpdates()
         }
     }
+    
 }
 extension ViewController: UISearchResultsUpdating,UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {

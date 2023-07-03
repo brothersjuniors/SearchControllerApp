@@ -47,11 +47,11 @@ class ScanViewController: UIViewController, DataScannerViewControllerDelegate {
         self.dismiss(animated: true)
         
         self.present(nextViewController, animated: true, completion: nil)
-        // nextViewController.modalPresentationStyle = .fullScreen
-        nextViewController.str = texts!
+   
+        DataShowView.str = texts!
         
     }
-    // var qualityLevel: DataScannerViewController.QualityLevel = .accurate
+
     
     func startButton() {
         guard scannerAvailable == true else { return }

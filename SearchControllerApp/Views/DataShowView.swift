@@ -10,29 +10,80 @@ import UIKit
 import RealmSwift
 class DataShowView: UIViewController {
     @IBOutlet weak var textView: UITextView!
-    var str = ""
-    
-    @IBOutlet weak var button: UIButton!
+    var dataBox = [String].self
+    static var str = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.text = str
-        //ここに記載
-        self.button.layer.cornerRadius = 50
-        self.button.frame = CGRect(x: (self.view.frame.size.width / 2) - 150, y: (self.view.frame.size.height / 2) - 50, width: 100, height: 100)
-        self.button.backgroundColor = UIColor.red
+        navigationItem.title = "スキャンデータ"
+        textView.text = DataShowView.str
+        // スクリーンの横縦幅
+        let screenWidth:CGFloat = self.view.frame.width
+        let screenHeight:CGFloat = self.view.frame.height
+        // ボタンのインスタンス生成
+        let button = UIButton()
+        // ボタンの位置とサイズを設定
+        button.frame = CGRect(x:screenWidth * 4/5, y:screenHeight * 4/5,
+                              width:60, height:60)
+        button.layer.cornerRadius = 30
+        // ボタンのタイトルを設定
+        button.setTitle("+", for:UIControl.State.normal)
+        // タイトルの色
+        button.setTitleColor(UIColor.white, for: .normal)
+        // ボタンのフォントサイズ
+        button.titleLabel?.font =  UIFont.systemFont(ofSize: 36)
+        // 背景色
+        button.backgroundColor = UIColor.blue
+        // action
+        button.addTarget(self,
+                         action: #selector(addItem),
+                         for: .touchUpInside)
+        // Viewにボタンを追加
+        self.view.addSubview(button)
     }
     
-    @IBAction func close(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    @IBAction func addItem(_ sender: Any) {
-        let alert = UIAlertController(title: "検知しました", message: "新たにこのコードを追加しますか？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+    @objc func addItem(_ sender: Any) {
+        let alert = UIAlertController(title: "検出したデータ", message: "このデータを使用しますか？", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default) { [self] (action) in
+            let nextView = storyboard!.instantiateViewController(withIdentifier: "addViewController") as! AddViewController//遷移先のViewControllerを設定
             
-        })
-        )
-        self.present(alert, animated: true, completion: nil)
+            //遷移する
+            
+            self.navigationController?.pushViewController(nextView, animated: true)
+            let navigationController = storyboard!.instantiateViewController(withIdentifier: "navigation") as! UINavigationController
+            
+            
+            //遷移先のNavigationControllerを設定
+            self.present(navigationController, animated: true, completion: nil)
+            
+            
+        }
+        //ここから追加
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (acrion) in
+            let tab = self.storyboard!.instantiateViewController(withIdentifier: "Main") as! ViewController
+                  self.navigationController?.pushViewController(tab, animated: true)
+            let navigationController = self.storyboard!.instantiateViewController(withIdentifier: "tab") as! UITabBarController
+               
+                  navigationController.modalPresentationStyle = .fullScreen
+                 // 遷移先のNavigationControllerを設定
+                  self.present(navigationController, animated: true, completion: nil)
+           // self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(cancel)
+        //ここまで追加
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+    // segueが動作することをViewControllerに通知するメソッド
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // segueのIDを確認して特定のsegueのときのみ動作させる
+        if segue.identifier == "addViewController" {
+            // 2. 遷移先のViewControllerを取得
+            let next = segue.destination as? AddViewController
+            // 3. １で用意した遷移先の変数に値を渡す
+            next?.idTextField.text = DataShowView.str
+        }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       self.view.endEditing(true)
     }
 }
-
-
