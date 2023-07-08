@@ -53,7 +53,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gae-Cr-Ncw">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="Lhu-FG-dI4" kind="show" identifier="" id="2Rr-p7-EV9"/>
+                                <segue destination="Lhu-FG-dI4" kind="showDetail" id="e7v-aQ-Y2F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKV-Tl-UgZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="-277"/>
+            <point key="canvasLocation" x="1502" y="-263"/>
         </scene>
         <!--アイテム追加-->
         <scene sceneID="5LR-b4-6jF">
@@ -74,38 +74,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカーを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZH1-Hu-qbO">
-                                <rect key="frame" x="100" y="103" width="193" height="50"/>
+                                <rect key="frame" x="50" y="103" width="293" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="qWN-b2-gsV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="商品名を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKI-VN-uXr">
-                                <rect key="frame" x="100" y="183" width="193" height="50"/>
+                                <rect key="frame" x="50" y="183" width="293" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="MmA-i7-5Mf"/>
                                     <constraint firstAttribute="height" constant="50" id="gQr-EQ-raF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="容量を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zrK-3u-tj6">
-                                <rect key="frame" x="100" y="263" width="193" height="50"/>
+                                <rect key="frame" x="50" y="263" width="293" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HL7-bL-QWC"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="b6C-F4-xdY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JANコードを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jp3-O3-zMO">
-                                <rect key="frame" x="100" y="343" width="193" height="50"/>
+                                <rect key="frame" x="50" y="343" width="293" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="IBF-pD-6jb"/>
                                     <constraint firstAttribute="height" constant="50" id="TzA-ne-m8Z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -113,25 +110,23 @@
                         <color key="backgroundColor" red="0.88150376080000004" green="0.69869817349999996" blue="0.32307440069999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Jp3-O3-zMO" firstAttribute="top" secondItem="zrK-3u-tj6" secondAttribute="bottom" constant="30" id="0fa-yH-EUu"/>
-                            <constraint firstItem="tfF-br-lPt" firstAttribute="trailing" secondItem="zrK-3u-tj6" secondAttribute="trailing" constant="100" id="8rj-gz-unh"/>
-                            <constraint firstItem="zrK-3u-tj6" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="100" id="8vb-jm-IZk"/>
+                            <constraint firstItem="tfF-br-lPt" firstAttribute="trailing" secondItem="zrK-3u-tj6" secondAttribute="trailing" constant="50" id="8rj-gz-unh"/>
+                            <constraint firstItem="zrK-3u-tj6" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="50" id="8vb-jm-IZk"/>
                             <constraint firstItem="ZH1-Hu-qbO" firstAttribute="top" secondItem="tfF-br-lPt" secondAttribute="top" constant="59" id="9dt-6g-xuS"/>
                             <constraint firstItem="zrK-3u-tj6" firstAttribute="top" secondItem="kKI-VN-uXr" secondAttribute="bottom" constant="30" id="Bnw-TJ-Cr0"/>
-                            <constraint firstItem="Jp3-O3-zMO" firstAttribute="top" secondItem="zrK-3u-tj6" secondAttribute="bottom" constant="30" id="S4v-Vh-J6E"/>
-                            <constraint firstItem="Jp3-O3-zMO" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="100" id="XKa-hO-zVy"/>
-                            <constraint firstItem="tfF-br-lPt" firstAttribute="trailing" secondItem="Jp3-O3-zMO" secondAttribute="trailing" constant="100" id="dnZ-2W-ILb"/>
-                            <constraint firstItem="zrK-3u-tj6" firstAttribute="top" secondItem="kKI-VN-uXr" secondAttribute="bottom" constant="30" id="eOA-dw-34p"/>
+                            <constraint firstItem="Jp3-O3-zMO" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="50" id="XKa-hO-zVy"/>
+                            <constraint firstItem="tfF-br-lPt" firstAttribute="trailing" secondItem="Jp3-O3-zMO" secondAttribute="trailing" constant="50" id="dnZ-2W-ILb"/>
                             <constraint firstItem="kKI-VN-uXr" firstAttribute="top" secondItem="ZH1-Hu-qbO" secondAttribute="bottom" constant="30" id="mGf-pW-Ths"/>
                             <constraint firstItem="ZH1-Hu-qbO" firstAttribute="centerX" secondItem="7iy-Fa-hPm" secondAttribute="centerX" id="q9e-hX-cjA"/>
-                            <constraint firstItem="kKI-VN-uXr" firstAttribute="top" secondItem="ZH1-Hu-qbO" secondAttribute="bottom" constant="30" id="xlQ-bO-PG0"/>
-                            <constraint firstItem="ZH1-Hu-qbO" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="100" id="y8c-Vi-CoH"/>
-                            <constraint firstItem="tfF-br-lPt" firstAttribute="trailing" secondItem="kKI-VN-uXr" secondAttribute="trailing" constant="100" id="zAZ-pK-h3G"/>
-                            <constraint firstItem="kKI-VN-uXr" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="100" id="zwv-bd-7Hi"/>
+                            <constraint firstItem="ZH1-Hu-qbO" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="50" id="y8c-Vi-CoH"/>
+                            <constraint firstItem="tfF-br-lPt" firstAttribute="trailing" secondItem="kKI-VN-uXr" secondAttribute="trailing" constant="50" id="zAZ-pK-h3G"/>
+                            <constraint firstItem="kKI-VN-uXr" firstAttribute="leading" secondItem="tfF-br-lPt" secondAttribute="leading" constant="50" id="zwv-bd-7Hi"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="アイテム追加" id="fKV-Pv-ieV">
                         <barButtonItem key="rightBarButtonItem" title="追加" id="ChK-TN-E0X">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveButton:" destination="y04-QE-O1c" id="WXW-lW-LFw"/>
                             </connections>
@@ -148,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQG-FO-lkP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2486" y="513"/>
+            <point key="canvasLocation" x="2221" y="513"/>
         </scene>
         <!--Detail-->
         <scene sceneID="BS4-yb-7yp">
@@ -238,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k75-DS-YQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3992" y="513"/>
+            <point key="canvasLocation" x="3734" y="513"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="8ps-S6-wqA">
@@ -316,10 +311,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JUd-E3-blo"/>
+                    <connections>
+                        <outlet property="titleLbel" destination="JNC-83-bLG" id="7ZE-Iv-N81"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spP-J1-oxv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-955" y="-263"/>
+            <point key="canvasLocation" x="-752" y="-263"/>
         </scene>
         <!--List-->
         <scene sceneID="Du8-J5-9pE">
@@ -341,7 +339,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF8-jh-sQG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685" y="-263"/>
+            <point key="canvasLocation" x="778" y="-263"/>
         </scene>
         <!--Item-->
         <scene sceneID="Mmb-5w-qJA">
@@ -363,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtR-Zh-nUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="513"/>
+            <point key="canvasLocation" x="-2" y="513"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="A5h-Cb-eLi">
@@ -382,7 +380,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWn-hW-eN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50" y="-263"/>
+            <point key="canvasLocation" x="-2" y="-263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Sv-7g-nA0">
@@ -400,7 +398,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bmx-Hm-D54" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3231" y="513"/>
+            <point key="canvasLocation" x="2966" y="513"/>
         </scene>
         <!--History-->
         <scene sceneID="JPW-uU-WeY">
@@ -415,10 +413,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tao-4A-MGl">
-                                <rect key="frame" x="0.0" y="60" width="393" height="473"/>
+                                <rect key="frame" x="0.0" y="60" width="393" height="289"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -428,7 +426,7 @@
                             <constraint firstItem="7VQ-Lw-LBF" firstAttribute="trailing" secondItem="tao-4A-MGl" secondAttribute="trailing" id="0mg-mo-R6F"/>
                             <constraint firstItem="tao-4A-MGl" firstAttribute="leading" secondItem="7VQ-Lw-LBF" secondAttribute="leading" id="SWi-b5-qt6"/>
                             <constraint firstItem="tao-4A-MGl" firstAttribute="top" secondItem="7VQ-Lw-LBF" secondAttribute="top" constant="60" id="kPU-af-ypw"/>
-                            <constraint firstItem="7VQ-Lw-LBF" firstAttribute="bottom" secondItem="tao-4A-MGl" secondAttribute="bottom" constant="270" id="yLL-Ly-4yv"/>
+                            <constraint firstItem="7VQ-Lw-LBF" firstAttribute="bottom" secondItem="tao-4A-MGl" secondAttribute="bottom" constant="454" id="yLL-Ly-4yv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="fossil.shell" catalog="system" id="JOh-sY-za6"/>
@@ -440,7 +438,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQ4-Ho-hOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043.5114503816794" y="512.67605633802816"/>
+            <point key="canvasLocation" x="779" y="513"/>
         </scene>
         <!--編集•再登録-->
         <scene sceneID="W1B-7f-exu">
@@ -450,43 +448,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HzJ-cF-6cZ">
-                                <rect key="frame" x="100" y="176" width="193" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="HzJ-cF-6cZ">
+                                <rect key="frame" x="50" y="146" width="293" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nwD-Ld-pmb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bAZ-9J-Vz4">
-                                <rect key="frame" x="100" y="256" width="193" height="50"/>
+                                <rect key="frame" x="50" y="226" width="293" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="DCd-FT-583"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="OOD-Ze-T7f"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oa2-X8-dxP">
-                                <rect key="frame" x="100" y="336" width="193" height="50"/>
+                                <rect key="frame" x="50" y="306" width="293" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="N3A-fK-NT2"/>
                                     <constraint firstAttribute="height" constant="50" id="ft9-lL-tFv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hoU-G4-SWj">
-                                <rect key="frame" x="100" y="416" width="193" height="50"/>
+                                <rect key="frame" x="50" y="386" width="293" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="8U7-YL-4Kd"/>
                                     <constraint firstAttribute="height" constant="50" id="lae-0W-q0V"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKh-yn-pIt">
-                                <rect key="frame" x="297" y="495.99999999999994" width="76" height="34.333333333333314"/>
+                                <rect key="frame" x="301" y="96" width="76" height="35"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="再登録"/>
                                 <connections>
@@ -497,21 +496,21 @@
                         <viewLayoutGuide key="safeArea" id="rkI-Kf-vDd"/>
                         <color key="backgroundColor" red="0.78651895199999999" green="0.96689504380000002" blue="0.75991789489999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="hoU-G4-SWj" secondAttribute="trailing" constant="100" id="6Dh-KG-rpJ"/>
-                            <constraint firstItem="sKh-yn-pIt" firstAttribute="top" secondItem="rkI-Kf-vDd" secondAttribute="top" constant="400" id="7C1-s2-Q0J"/>
-                            <constraint firstItem="hoU-G4-SWj" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="100" id="8VC-7P-PPr"/>
-                            <constraint firstItem="HzJ-cF-6cZ" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="100" id="Do1-Iq-fUk"/>
-                            <constraint firstItem="Oa2-X8-dxP" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="100" id="K8d-qZ-7Om"/>
+                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="hoU-G4-SWj" secondAttribute="trailing" constant="50" id="6Dh-KG-rpJ"/>
+                            <constraint firstItem="sKh-yn-pIt" firstAttribute="top" secondItem="rkI-Kf-vDd" secondAttribute="top" id="7C1-s2-Q0J"/>
+                            <constraint firstItem="hoU-G4-SWj" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="50" id="8VC-7P-PPr"/>
+                            <constraint firstItem="HzJ-cF-6cZ" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="50" id="Do1-Iq-fUk"/>
+                            <constraint firstItem="Oa2-X8-dxP" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="50" id="K8d-qZ-7Om"/>
                             <constraint firstItem="bAZ-9J-Vz4" firstAttribute="top" secondItem="HzJ-cF-6cZ" secondAttribute="bottom" constant="30" id="LFe-0S-54j"/>
                             <constraint firstItem="hoU-G4-SWj" firstAttribute="top" secondItem="Oa2-X8-dxP" secondAttribute="bottom" constant="30" id="TvG-Rv-aVi"/>
-                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="HzJ-cF-6cZ" secondAttribute="trailing" constant="100" id="YUT-al-9dt"/>
+                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="HzJ-cF-6cZ" secondAttribute="trailing" constant="50" id="YUT-al-9dt"/>
                             <constraint firstItem="Oa2-X8-dxP" firstAttribute="top" secondItem="bAZ-9J-Vz4" secondAttribute="bottom" constant="30" id="Z3N-Sp-brj"/>
-                            <constraint firstItem="bAZ-9J-Vz4" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="100" id="bon-MY-Qoj"/>
+                            <constraint firstItem="bAZ-9J-Vz4" firstAttribute="leading" secondItem="rkI-Kf-vDd" secondAttribute="leading" constant="50" id="bon-MY-Qoj"/>
                             <constraint firstItem="sKh-yn-pIt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rkI-Kf-vDd" secondAttribute="leading" symbolic="YES" id="m2W-IN-uXH"/>
-                            <constraint firstItem="HzJ-cF-6cZ" firstAttribute="top" secondItem="rkI-Kf-vDd" secondAttribute="top" constant="80" id="vAp-ea-BIs"/>
-                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="sKh-yn-pIt" secondAttribute="trailing" constant="20" id="vuv-6i-TX7"/>
-                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="bAZ-9J-Vz4" secondAttribute="trailing" constant="100" id="wCm-J4-mHP"/>
-                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="Oa2-X8-dxP" secondAttribute="trailing" constant="100" id="xLf-dP-ySZ"/>
+                            <constraint firstItem="HzJ-cF-6cZ" firstAttribute="top" secondItem="rkI-Kf-vDd" secondAttribute="top" constant="50" id="vAp-ea-BIs"/>
+                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="sKh-yn-pIt" secondAttribute="trailing" constant="16" id="vuv-6i-TX7"/>
+                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="bAZ-9J-Vz4" secondAttribute="trailing" constant="50" id="wCm-J4-mHP"/>
+                            <constraint firstItem="rkI-Kf-vDd" firstAttribute="trailing" secondItem="Oa2-X8-dxP" secondAttribute="trailing" constant="50" id="xLf-dP-ySZ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -522,11 +521,12 @@
                         <outlet property="janTextField" destination="hoU-G4-SWj" id="WKi-l1-T12"/>
                         <outlet property="makerTextField" destination="HzJ-cF-6cZ" id="P35-nY-wbo"/>
                         <outlet property="productTextField" destination="bAZ-9J-Vz4" id="6EM-fe-FOI"/>
+                        <outlet property="reRegisterButton" destination="sKh-yn-pIt" id="rAP-hk-ntR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQp-0X-f9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278.6259541984732" y="-263.38028169014086"/>
+            <point key="canvasLocation" x="2221" y="-263"/>
         </scene>
         <!--Scan-->
         <scene sceneID="PZm-80-jdd">
@@ -545,7 +545,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mf2-2k-1RB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-518.32061068702285" y="512.67605633802816"/>
+            <point key="canvasLocation" x="-753" y="513"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DTL-KY-fOd">
@@ -564,7 +564,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMJ-as-AFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1766" y="513"/>
+            <point key="canvasLocation" x="1502" y="513"/>
         </scene>
     </scenes>
     <resources>

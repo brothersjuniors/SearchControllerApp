@@ -7,8 +7,6 @@
 import UIKit
 import RealmSwift
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
-   
     private var janString: String?
     private var box = Int()
     var data: Results<Products>!
@@ -20,6 +18,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         searchController.obscuresBackgroundDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = false
         table.delegate = self
@@ -31,7 +30,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             _ =  BarcodeGenerator.generateBarCode(from: "\(janString ?? "4902011713725")")!
             configureRefreshControl()
             configulation()
-          //  idTextField.text = DataShow().str
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,7 +49,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             item = searchedItem[indexPath.row]
             janString = searchedItem[indexPath.row].janID
             cell.accessoryType = .none
-         } else {
+        } else {
             item = data[indexPath.row]
             janString = item.janID
             cell.accessoryType = .detailButton
@@ -97,11 +95,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 let detailVC = segue.destination as! DsViewController
                 detailVC.filtered = filtered
             }
-            
-        }
-    }
+        }}
     //くるくる回ってリロード処理
-   private func configureRefreshControl () {
+    private func configureRefreshControl () {
         table.refreshControl = UIRefreshControl()
         table.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
@@ -122,7 +118,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = "検索したい商品名を入力して下さい"
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -132,7 +128,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             tableView.endUpdates()
         }
     }
-    
+    func configureUI(){
+        self.view.backgroundColor = UIColor.white
+        //グラデーション処理
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.green.cgColor,UIColor.yellow.cgColor]
+        gradientLayer.locations = [0,0.9]
+        gradientLayer.frame = self.view.bounds
+        //グラデーションの開始地点・終了地点の設定
+        gradientLayer.startPoint = CGPoint.init(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint.init(x: 1, y: 1)
+        //ViewControllerのViewレイヤーにグラデーションレイヤーを挿入する
+        self.view.layer.insertSublayer(gradientLayer,at:0)
+    }
 }
 extension ViewController: UISearchResultsUpdating,UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {

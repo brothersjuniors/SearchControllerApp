@@ -9,9 +9,8 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var titleLbel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-   
-}
+        titleLbel.layer.cornerRadius = 10
+    }}
