@@ -14,6 +14,7 @@ class DataShowView: UIViewController {
     static var str = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         navigationItem.title = "スキャンデータ"
         textView.text = DataShowView.str
         // スクリーンの横縦幅
@@ -59,14 +60,16 @@ class DataShowView: UIViewController {
         }
         //ここから追加
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (acrion) in
+        
+            DataShowView.str = ""
             let tab = self.storyboard!.instantiateViewController(withIdentifier: "Main") as! ViewController
-                  self.navigationController?.pushViewController(tab, animated: true)
+            self.navigationController?.pushViewController(tab, animated: true)
             let navigationController = self.storyboard!.instantiateViewController(withIdentifier: "tab") as! UITabBarController
-               
-                  navigationController.modalPresentationStyle = .fullScreen
-                 // 遷移先のNavigationControllerを設定
-                  self.present(navigationController, animated: true, completion: nil)
-           // self.dismiss(animated: true, completion: nil)
+            
+            navigationController.modalPresentationStyle = .fullScreen
+            // 遷移先のNavigationControllerを設定
+            self.present(navigationController, animated: true, completion: nil)
+            // self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(cancel)
         //ここまで追加
@@ -84,6 +87,19 @@ class DataShowView: UIViewController {
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       self.view.endEditing(true)
+        self.view.endEditing(true)
+    }
+    func configureUI(){
+        self.view.backgroundColor = UIColor.white
+        //グラデーション処理
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.systemPink.cgColor,UIColor.systemBlue.cgColor]
+        gradientLayer.locations = [0,0.9]
+        gradientLayer.frame = self.view.bounds
+        //グラデーションの開始地点・終了地点の設定
+        gradientLayer.startPoint = CGPoint.init(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint.init(x: 1, y: 1)
+        //ViewControllerのViewレイヤーにグラデーションレイヤーを挿入する
+        self.view.layer.insertSublayer(gradientLayer,at:0)
     }
 }

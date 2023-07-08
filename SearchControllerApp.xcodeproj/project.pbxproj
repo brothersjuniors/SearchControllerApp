@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD076FEA2A5740E8008AE1AD /* Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD076FE92A5740E8008AE1AD /* Calc.swift */; };
 		AD1A00E129CED1860052FC19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1A00E029CED1860052FC19 /* AppDelegate.swift */; };
 		AD1A00E329CED1860052FC19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1A00E229CED1860052FC19 /* SceneDelegate.swift */; };
 		AD1A00E529CED1860052FC19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1A00E429CED1860052FC19 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		86E65E41CBCAA704F05780E6 /* Pods-SearchControllerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchControllerApp.debug.xcconfig"; path = "Target Support Files/Pods-SearchControllerApp/Pods-SearchControllerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		97907D5762B513103C203C9E /* Pods_SearchControllerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchControllerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD076FE92A5740E8008AE1AD /* Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calc.swift; sourceTree = "<group>"; };
 		AD1A00DD29CED1860052FC19 /* SearchControllerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchControllerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1A00E029CED1860052FC19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD1A00E229CED1860052FC19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				AD1A00FA29CED4B50052FC19 /* Model.swift */,
 				AD99526D29DF5CAC0047DF10 /* Helper.swift */,
+				AD076FE92A5740E8008AE1AD /* Calc.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				AD1A00E529CED1860052FC19 /* ViewController.swift in Sources */,
 				AD99527229DF5CFF0047DF10 /* BarcodeGenerator.swift in Sources */,
 				AD1A00E129CED1860052FC19 /* AppDelegate.swift in Sources */,
+				AD076FEA2A5740E8008AE1AD /* Calc.swift in Sources */,
 				AD99527629DF5D520047DF10 /* DataShowView.swift in Sources */,
 				AD99526E29DF5CAC0047DF10 /* Helper.swift in Sources */,
 				AD1A00E329CED1860052FC19 /* SceneDelegate.swift in Sources */,
@@ -438,11 +442,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = HT5BM9TLAU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchControllerApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JAN商品管理App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -471,11 +476,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = HT5BM9TLAU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchControllerApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JAN商品管理App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -525,7 +531,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 10.38.0;
 			};
 		};
